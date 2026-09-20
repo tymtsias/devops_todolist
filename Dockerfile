@@ -10,7 +10,7 @@ FROM python:${PYTHON_VERSION}-slim
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
-COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=builder /usr/local/lib/python${PYTHON_VERSION}/site-packages /usr/local/lib/python${PYTHON_VERSION}/site-packages
 COPY . . 
 
 RUN python manage.py migrate
